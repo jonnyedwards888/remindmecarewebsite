@@ -3,6 +3,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../../components/footer";
 import { GradientBackground } from "../../components/gradient-background";
+import { FeaturesDropdown } from "../../components/features-dropdown";
+import { CareDropdown } from "../../components/care-dropdown";
+import { ProductsDropdown } from "../../components/products-dropdown";
+import { ManageDropdown } from "../../components/manage-dropdown";
 
 export default function ActivityLibraryPage() {
   return (
@@ -13,7 +17,7 @@ export default function ActivityLibraryPage() {
       <div className="relative z-10">
         {/* Navigation */}
         <nav className="flex items-center justify-between p-6 lg:px-8">
-          <Link href="/" className="flex items-center">
+          <div className="flex items-center">
             <Image
               src="/images/reme-logo.png"
               alt="ReMe Logo"
@@ -21,30 +25,34 @@ export default function ActivityLibraryPage() {
               height={40}
               className="mr-3"
             />
-            <span className="text-white font-semibold text-lg">
+            <span className="text-white font-semibold text-lg dm-sans-heading">
               RemindMecare
             </span>
-          </Link>
+          </div>
 
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
               className="text-white/90 hover:text-white transition-colors"
             >
-              Home
+              Overview
             </Link>
+            <FeaturesDropdown />
+            <CareDropdown />
+            <ProductsDropdown />
             <Link
+              href="/resources"
+              className="text-white/90 hover:text-white transition-colors"
+            >
+              Resources
+            </Link>
+            <a
               href="#"
               className="text-white/90 hover:text-white transition-colors"
             >
-              Overview
-            </Link>
-            <Button
-              variant="outline"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-            >
-              Contact
-            </Button>
+              Buy
+            </a>
+            <ManageDropdown />
           </div>
         </nav>
 

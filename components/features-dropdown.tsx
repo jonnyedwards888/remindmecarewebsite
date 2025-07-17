@@ -20,7 +20,7 @@ export function FeaturesDropdown() {
       if (!isHoveringDropdown) {
         setIsOpen(false);
       }
-    }, 150); // 150ms delay before closing
+    }, 150); // 150ms delay before closing (default)
   };
 
   const handleDropdownMouseEnter = () => {
@@ -34,7 +34,7 @@ export function FeaturesDropdown() {
     setIsHoveringDropdown(false);
     timeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 150); // 150ms delay before closing
+    }, 150); // 150ms delay before closing (default)
   };
 
   // Cleanup timeout on unmount

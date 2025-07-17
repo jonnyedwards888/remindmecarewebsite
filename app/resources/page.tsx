@@ -49,41 +49,7 @@ export default function ResourcesPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Navigation */}
-        <nav className="flex items-center justify-between p-6 lg:px-8">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/images/reme-logo.png"
-              alt="ReMe Logo"
-              width={40}
-              height={40}
-              className="mr-3"
-            />
-            <span className="text-white font-semibold text-lg">
-              RemindMecare
-            </span>
-          </Link>
-
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/"
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              href="#"
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              Overview
-            </Link>
-            <Button
-              variant="outline"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-            >
-              Contact
-            </Button>
-          </div>
-        </nav>
+        {/* Removed local nav, now using global Navbar */}
 
         {/* Main content */}
         <div className="max-w-6xl mx-auto px-6 py-12">

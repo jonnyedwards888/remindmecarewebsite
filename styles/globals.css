@@ -92,3 +92,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.partner-scroller {
+  min-width: 200%;
+  display: flex;
+}
+
+@keyframes partner-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-partner-scroll {
+  animation: partner-scroll 40s linear infinite;
+}

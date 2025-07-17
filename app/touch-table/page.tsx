@@ -3,6 +3,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../../components/footer";
 import { GradientBackground } from "../../components/gradient-background";
+import { FeaturesDropdown } from "../../components/features-dropdown";
+import { CareDropdown } from "../../components/care-dropdown";
+import { ProductsDropdown } from "../../components/products-dropdown";
+import { ManageDropdown } from "../../components/manage-dropdown";
 
 export default function TouchTablePage() {
   return (
@@ -13,15 +17,15 @@ export default function TouchTablePage() {
       <div className="relative z-10">
         {/* Navigation */}
         <nav className="flex items-center justify-between p-6 lg:px-8">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center cursor-pointer group">
             <Image
               src="/images/reme-logo.png"
               alt="ReMe Logo"
               width={40}
               height={40}
-              className="mr-3"
+              className="mr-3 group-hover:opacity-90 transition-opacity"
             />
-            <span className="text-white font-semibold text-lg">
+            <span className="text-white font-semibold text-lg dm-sans-heading group-hover:underline">
               RemindMecare
             </span>
           </Link>
@@ -31,20 +35,24 @@ export default function TouchTablePage() {
               href="/"
               className="text-white/90 hover:text-white transition-colors"
             >
-              Home
+              Overview
             </Link>
+            <FeaturesDropdown />
+            <CareDropdown />
+            <ProductsDropdown />
             <Link
+              href="/resources"
+              className="text-white/90 hover:text-white transition-colors"
+            >
+              Resources
+            </Link>
+            <a
               href="#"
               className="text-white/90 hover:text-white transition-colors"
             >
-              Overview
-            </Link>
-            <Button
-              variant="outline"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-            >
-              Contact
-            </Button>
+              Buy
+            </a>
+            <ManageDropdown />
           </div>
         </nav>
 
@@ -85,7 +93,7 @@ export default function TouchTablePage() {
                   </div>
                   <div className="bg-white/10 rounded-xl p-8 border border-white/20 aspect-video flex items-center justify-center">
                     <Image
-                      src="/placeholder.svg?height=300&width=400&text=Touch+Table+Overview"
+                      src="/touchtable/Touch-tableimg1.png"
                       alt="Touch Table Overview"
                       width={400}
                       height={300}
@@ -100,7 +108,7 @@ export default function TouchTablePage() {
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div className="bg-white/10 rounded-xl p-8 border border-white/20 aspect-video flex items-center justify-center lg:order-1">
                     <Image
-                      src="/placeholder.svg?height=300&width=400&text=Care+Environment+Design"
+                      src="/touchtable/Touchtableimg2.png"
                       alt="Designed for Care"
                       width={400}
                       height={300}
@@ -158,7 +166,7 @@ export default function TouchTablePage() {
                   </div>
                   <div className="bg-white/10 rounded-xl p-8 border border-white/20 aspect-video flex items-center justify-center">
                     <Image
-                      src="/placeholder.svg?height=300&width=400&text=Data+Recording+Dashboard"
+                      src="/touchtable/Touchtableimg3.png"
                       alt="Data Recording"
                       width={400}
                       height={300}
@@ -173,7 +181,7 @@ export default function TouchTablePage() {
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div className="bg-white/10 rounded-xl p-8 border border-white/20 aspect-video flex items-center justify-center lg:order-1">
                     <Image
-                      src="/placeholder.svg?height=300&width=400&text=Technical+Specifications"
+                      src="/touchtable/Touchtableimg4.png"
                       alt="Specifications"
                       width={400}
                       height={300}
@@ -218,8 +226,22 @@ export default function TouchTablePage() {
                 </h2>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-white text-2xl">📱</span>
+                    <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
+                      {/* Heroicons Device Phone */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-8 h-8 text-white drop-shadow"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.75 6.75v-1.5A2.25 2.25 0 0 0 13.5 3h-3A2.25 2.25 0 0 0 8.25 5.25v1.5m7.5 0v10.5m0-10.5H8.25m7.5 0a2.25 2.25 0 0 1 2.25 2.25v10.5A2.25 2.25 0 0 1 15.75 21h-7.5A2.25 2.25 0 0 1 6 19.5V8.25A2.25 2.25 0 0 1 8.25 6.75m0 0V5.25A2.25 2.25 0 0 1 10.5 3h3a2.25 2.25 0 0 1 2.25 2.25v1.5"
+                        />
+                      </svg>
                     </div>
                     <h3 className="text-white font-semibold text-lg mb-2">
                       Easy to Use
@@ -229,8 +251,22 @@ export default function TouchTablePage() {
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-white text-2xl">📊</span>
+                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
+                      {/* Heroicons Stats (provided) */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-8 h-8 text-white drop-shadow"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                        />
+                      </svg>
                     </div>
                     <h3 className="text-white font-semibold text-lg mb-2">
                       Data Capture
@@ -240,8 +276,22 @@ export default function TouchTablePage() {
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-white text-2xl">🎮</span>
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
+                      {/* Heroicons Game Controller (outline) */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-8 h-8 text-white drop-shadow"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.75 9.75h.008v.008h-.008V9.75zm-7.5 0h.008v.008H8.25V9.75zm1.5 3.75h3m-1.5-1.5v3m7.5-2.25a6.75 6.75 0 1 0-13.5 0c0 1.306.835 2.417 2.25 3.172V18a2.25 2.25 0 0 0 2.25 2.25h4.5A2.25 2.25 0 0 0 16.5 18v-1.328c1.415-.755 2.25-1.866 2.25-3.172z"
+                        />
+                      </svg>
                     </div>
                     <h3 className="text-white font-semibold text-lg mb-2">
                       Full Functionality

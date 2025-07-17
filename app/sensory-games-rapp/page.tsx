@@ -3,6 +3,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../../components/footer";
 import { GradientBackground } from "../../components/gradient-background";
+import { FeaturesDropdown } from "../../components/features-dropdown";
+import { CareDropdown } from "../../components/care-dropdown";
+import { ProductsDropdown } from "../../components/products-dropdown";
+import { ManageDropdown } from "../../components/manage-dropdown";
 
 export default function SensoryGamesRappPage() {
   return (
@@ -13,15 +17,15 @@ export default function SensoryGamesRappPage() {
       <div className="relative z-10">
         {/* Navigation */}
         <nav className="flex items-center justify-between p-6 lg:px-8">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center cursor-pointer group">
             <Image
               src="/images/reme-logo.png"
               alt="ReMe Logo"
               width={40}
               height={40}
-              className="mr-3"
+              className="mr-3 group-hover:opacity-90 transition-opacity"
             />
-            <span className="text-white font-semibold text-lg">
+            <span className="text-white font-semibold text-lg dm-sans-heading group-hover:underline">
               RemindMecare
             </span>
           </Link>
@@ -31,20 +35,24 @@ export default function SensoryGamesRappPage() {
               href="/"
               className="text-white/90 hover:text-white transition-colors"
             >
-              Home
+              Overview
             </Link>
+            <FeaturesDropdown />
+            <CareDropdown />
+            <ProductsDropdown />
             <Link
+              href="/resources"
+              className="text-white/90 hover:text-white transition-colors"
+            >
+              Resources
+            </Link>
+            <a
               href="#"
               className="text-white/90 hover:text-white transition-colors"
             >
-              Overview
-            </Link>
-            <Button
-              variant="outline"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-            >
-              Contact
-            </Button>
+              Buy
+            </a>
+            <ManageDropdown />
           </div>
         </nav>
 
@@ -84,7 +92,7 @@ export default function SensoryGamesRappPage() {
                 </div>
 
                 {/* Two small button-sized images */}
-                <div className="flex gap-4 my-8">
+                <div className="flex gap-4 my-8 justify-center">
                   <div className="w-24 h-24 bg-white/20 rounded-xl flex items-center justify-center">
                     <Image
                       src="/images/games-and-apps-icon.png"
@@ -118,7 +126,7 @@ export default function SensoryGamesRappPage() {
               </section>
 
               <section>
-                <h2 className="text-3xl font-bold text-white mb-6">
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">
                   Pre-selected Games, Quizzes, Sensory Activities
                 </h2>
                 <div className="space-y-6 text-white/90 text-lg leading-relaxed">
@@ -147,7 +155,7 @@ export default function SensoryGamesRappPage() {
               </section>
 
               <section>
-                <h2 className="text-3xl font-bold text-white mb-6">
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">
                   Access to Google Content sites
                 </h2>
                 <p className="text-white/90 text-lg leading-relaxed mb-8">
@@ -157,7 +165,7 @@ export default function SensoryGamesRappPage() {
                   within RAPP
                 </p>
 
-                <h2 className="text-3xl font-bold text-white mb-6">
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">
                   Daily Readymade Activities
                 </h2>
                 <div className="space-y-6 text-white/90 text-lg leading-relaxed">
@@ -194,18 +202,18 @@ export default function SensoryGamesRappPage() {
 
               {/* Integrations section with image on left */}
               <section>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="flex justify-center items-center h-full">
                     <Image
                       src="/images/integrations-icon.png"
                       alt="RAPP Integrations"
-                      width={400}
-                      height={300}
-                      className="rounded-xl w-full object-cover"
+                      width={180}
+                      height={180}
+                      className="rounded-xl"
                     />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-white mb-6">
+                    <h2 className="text-3xl font-bold text-white mb-6 text-center">
                       Integrations
                     </h2>
                     <p className="text-white/90 text-lg leading-relaxed">
@@ -225,18 +233,18 @@ export default function SensoryGamesRappPage() {
 
               {/* Other Uses section with image on left */}
               <section>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="flex justify-center items-center h-full">
                     <Image
                       src="/images/portability-icon.png"
                       alt="Other Uses"
-                      width={400}
-                      height={300}
-                      className="rounded-xl w-full object-cover"
+                      width={180}
+                      height={180}
+                      className="rounded-xl"
                     />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-white mb-6">
+                    <h2 className="text-3xl font-bold text-white mb-6 text-center">
                       Other Uses
                     </h2>
                     <p className="text-white/90 text-lg leading-relaxed">
@@ -251,18 +259,18 @@ export default function SensoryGamesRappPage() {
 
               {/* Data Capture section with image on left */}
               <section>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="flex justify-center items-center h-full">
                     <Image
                       src="/images/reporting-icon.png"
                       alt="Data Capture"
-                      width={400}
-                      height={300}
-                      className="rounded-xl w-full object-cover"
+                      width={180}
+                      height={180}
+                      className="rounded-xl"
                     />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-white mb-6">
+                    <h2 className="text-3xl font-bold text-white mb-6 text-center">
                       Data Capture
                     </h2>
                     <p className="text-white/90 text-lg leading-relaxed">

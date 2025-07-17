@@ -381,9 +381,88 @@ export default function Component() {
         {/* Video Section */}
         <VideoSection />
 
+        {/* Partners Scroller Section */}
+        <section className="py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center dm-sans-heading">
+              People we've worked with:
+            </h2>
+            {/* Error message state */}
+            <PartnersScrollerWithErrorHandling />
+          </div>
+        </section>
+
         {/* Footer */}
         <Footer />
       </div>
     </div>
+  );
+}
+
+function PartnersScrollerWithErrorHandling() {
+  const partners = [
+    "SHARP.jpg",
+    "ageuk.jpg",
+    "IDEA-London.jpg",
+    "Worcester-University.jpg",
+    "Dr-Mortons.jpg",
+    "kingston-hospital.jpg",
+    "orcha.jpg",
+    "equideum.jpg",
+    "emis-health.jpg",
+    "Kings-College.jpg",
+    "AA-demention.jpg",
+    "dementia-pathfinders.jpg",
+    "Parkinsons.jpg",
+    "ico.jpg",
+    "bluebird-care.jpg",
+  ];
+  const [imgError, setImgError] = useState(false);
+
+  if (!partners.length) {
+    return (
+      <div className="text-center text-red-400 font-semibold mt-4">
+        No partners found.
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div
+        className="relative overflow-hidden rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm shadow-lg"
+        style={{ minHeight: 100 }}
+      >
+        <div
+          className="partner-scroller flex items-center gap-12 py-6 animate-partner-scroll hover:[animation-play-state:paused]"
+          style={{ willChange: "transform" }}
+        >
+          {[...partners, ...partners].map((img, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 flex items-center justify-center h-20 w-40 md:w-48"
+            >
+              <Image
+                src={`/partners/${img}`}
+                alt={img
+                  .replace(/[-.]/g, " ")
+                  .replace(/jpg|png|jpeg/gi, "")
+                  .trim()}
+                width={160}
+                height={80}
+                className="object-contain h-20 w-full hover:grayscale transition duration-300 bg-white/10 rounded-lg shadow"
+                onError={() => setImgError(true)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      {imgError && (
+        <div className="text-center text-red-400 font-semibold mt-4">
+          One or more partner images failed to load. Check the /public/partners
+          folder and image names.
+        </div>
+      )}
+    </>
   );
 }
