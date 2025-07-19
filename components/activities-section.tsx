@@ -77,22 +77,16 @@ export function ActivitiesSection() {
                   .toLowerCase()
                   .replace(/\s+/g, "-")
                   .replace(/&/g, "and")}`}
-                className="group relative bg-gradient-to-br from-white/10 via-white/8 to-white/6 backdrop-blur-sm rounded-xl border border-white/20 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_16px_rgba(255,255,255,0.12)] hover:-translate-y-1 hover:bg-gradient-to-br hover:from-white/12 hover:via-white/10 hover:to-white/8 transition-all duration-300 overflow-hidden cursor-pointer w-full aspect-square p-3"
+                className="group w-full aspect-square p-3 cursor-pointer"
                 scroll={false}
               >
-                {/* Subtle inner glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Background texture */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/3 via-transparent to-white/2 opacity-60"></div>
-
                 <div className="relative z-10 w-full h-full flex items-center justify-center">
                   <Image
                     src={activity.icon as string}
                     alt={activity.name}
-                    width={180}
-                    height={180}
-                    className="w-full h-full object-cover rounded-2xl drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_4px_12px_rgba(255,255,255,0.15)] transition-all duration-300 group-hover:scale-105"
+                    width={200}
+                    height={200}
+                    className="w-48 h-48 object-cover rounded-2xl drop-shadow-[0_2px_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_4px_12px_rgba(255,255,255,0.15)] transition-all duration-300 group-hover:scale-105"
                   />
                 </div>
               </Link>
